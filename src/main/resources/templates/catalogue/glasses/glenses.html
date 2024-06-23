@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlassesLensesList</title>
+</head>
+<body>
+<!-- up-->
+<!-- Оптика-->
+<div class="upClass" id="upId">
+  <h1>Оптика (*glenses.html*)</h1>
+</div>
+<!-- left-->
+<!-- Найти, Заказы, Клиенты, Склад, Администратор-->
+<div class="leftClass" id="leftId">
+  <form method="post" data-th-action="@{glenses.html}">
+    <input data-th-value="${filter}" type="text" name="filter" size="20">
+    <button type="submit">Найти</button><br>
+  </form>
+  <button name="orders">Заказы</button><br>
+  <button name="clients">Клиенты</button><br>
+  <button name="store">Склад</button><br>
+  <button name="admin">Администратор</button><br>
+</div>
+<!-- center-->
+<div class="centerClass" id="centerId">
+  <!-- private String firm;
+    private String model;
+    private String material;
+    private String type;-->
+  <h2>Список очковых линз:</h2>
+  <table border="3">
+    <thead>
+    <tr>
+      <th> №</th>
+      <th> Фирма</th>
+      <th> Модель</th>
+      <th> Материал</th>
+      <th> Тип</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="glens : ${glenses}">
+      <td data-th-text="${glens.id}"></td>
+      <td data-th-text="${glens.firm}"></td>
+      <td data-th-text="${glens.model}"></td>
+      <td data-th-text="${glens.material}"></td>
+      <td data-th-text="${glens.type}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
