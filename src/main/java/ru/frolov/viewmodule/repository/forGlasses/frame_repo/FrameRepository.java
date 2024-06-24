@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface FrameRepository {
     List<Frame> findAll();
+
+    void save(Frame frame);
 }

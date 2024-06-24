@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,5 +22,8 @@ public class Frame {
     private String model;
     private String material;
     private String typeOfFixation;
+
+    private BigDecimal purchasePrice;
+    private BigDecimal salePrice;
 
 }

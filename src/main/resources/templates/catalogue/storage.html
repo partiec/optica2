@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EyeFramesList</title>
+    <style>
+        form{
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+<div class="upClass" id="upId">
+    <h1> О п т и к а </h1>
+    <h2>-Склад-</h2>
+    <hr>
+</div>
+<!--up -->
+<div class="fr">
+    <h2>Оправы в наличии:</h2>
+    <form>
+        <input type="text" size="20">
+        <button type="submit">Найти</button>
+    </form><br>
+    <table border="3">
+        <thead>
+        <tr>
+            <th> №</th>
+            <th> Фирма</th>
+            <th> Модель</th>
+            <th> Материал</th>
+            <th> Тип</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="frame : ${frames}">
+            <td data-th-text="${frame.id}"></td>
+            <td data-th-text="${frame.firm}"></td>
+            <td data-th-text="${frame.model}"></td>
+            <td data-th-text="${frame.material}"></td>
+            <td data-th-text="${frame.typeOfFixation}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <form method="post" data-th-action="@{/catalogue}">
+        <label><strong>Вписать новую оправу:</strong></label><br>
+        <label>Фирма: <input type="text" name="firm"> </label><br>
+        <label>Модель: <input type="text" name="model"> </label><br>
+        <label>Материал: <input type="text" name="material"> </label><br>
+        <label>Тип: <input type="text" name="type"> </label><br>
+        <button type="submit">Создать</button>
+    </form>
+</div>
+<hr>
+<!-- конец оправ-->
+<div class="glClass">
+    <h2>Очковые линзы в наличии:</h2>
+    <form>
+        <input type="text" size="20">
+        <button type="submit">Найти</button>
+    </form><br>
+    <table border="3">
+        <thead>
+        <tr>
+            <th> №</th>
+            <th> Фирма</th>
+            <th> Модель</th>
+            <th> Материал</th>
+            <th> Тип</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="glens : ${glenses}">
+            <td data-th-text="${glens.id}"></td>
+            <td data-th-text="${glens.firm}"></td>
+            <td data-th-text="${glens.model}"></td>
+            <td data-th-text="${glens.material}"></td>
+            <td data-th-text="${glens.type}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <form>
+        <label><strong>Вписать новый товар:</strong>:</strong></label><br>
+        <label>Фирма: <input type="text"> </label><br>
+        <label>Модель: <input type="text"> </label><br>
+        <label>Материал: <input type="text"> </label><br>
+        <label>Тип: <input type="text"> </label><br>
+        <button type="submit">Создать</button>
+    </form>
+</div>
+<hr>
+
+</body>
+</html>
+

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -18,4 +20,7 @@ public class GLens {
     private String model;
     private String material;
     private String type;
+
+    private BigDecimal purchasePrice;
+    private BigDecimal salePrice;
 }

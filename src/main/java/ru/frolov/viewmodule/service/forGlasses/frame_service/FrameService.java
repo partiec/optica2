@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface FrameService {
     List<Frame> findAllEyeFrames();
+
+    void saveFrame(Frame frame);
 }

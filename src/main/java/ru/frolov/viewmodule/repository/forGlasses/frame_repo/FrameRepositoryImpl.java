@@ -2,6 +2,7 @@ package ru.frolov.viewmodule.repository.forGlasses.frame_repo;
 
 import org.springframework.stereotype.Repository;
 import ru.frolov.viewmodule.entity.forGlasses.Frame;
+import ru.frolov.viewmodule.entity.forGlasses.GLens;
 
 
 import java.util.Collections;
@@ -13,14 +14,15 @@ import java.util.stream.LongStream;
 public class FrameRepositoryImpl implements FrameRepository {
 
     private final List<Frame> frames = Collections.synchronizedList(new LinkedList<>());
-
-    public FrameRepositoryImpl() {
-        LongStream.range(1, 4)
-                .forEach(i->this.frames.add(new Frame( i,  "Ferre", "модель-№%d".formatted(i), "пластик", "ободок")));
-    }
+    private final List<GLens> glenses = Collections.synchronizedList(new LinkedList<>());
 
     @Override
     public List<Frame> findAll() {
         return Collections.unmodifiableList(this.frames);
+    }
+
+    @Override
+    public void save(Frame frame) {
+        this.frames.add(frame);
     }
 }
