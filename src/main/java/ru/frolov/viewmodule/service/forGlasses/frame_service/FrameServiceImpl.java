@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.frolov.viewmodule.entity.forGlasses.Frame;
 import ru.frolov.viewmodule.repository.forGlasses.frame_repo.FrameRepository;
-import ru.frolov.viewmodule.repository.forGlasses.glens_repo.GLensRepository;
+import ru.frolov.viewmodule.repository.forGlasses.glens_repo.GlensRepository;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import java.util.List;
 public class FrameServiceImpl implements FrameService {
 
     private final FrameRepository frameRepository;
-    private final GLensRepository gLensRepository;
+    private final GlensRepository gLensRepository;
     @Override
-    public List<Frame> findAllEyeFrames() {
+    public List<Frame> findAllFrames() {
         return this.frameRepository.findAll();
     }
 

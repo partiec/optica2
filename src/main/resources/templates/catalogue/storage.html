@@ -3,93 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>EyeFramesList</title>
-    <style>
-        form{
-            background-color: whitesmoke;
-        }
-    </style>
+    <!--    <link rel="stylesheet" type="text/css" href="styl.css" />-->
 </head>
-
+<!-- 00000000000000000000000000000000000000000000000000000-->
 <body>
-<div class="upClass" id="upId">
-    <h1> О п т и к а </h1>
-    <h2>-Склад-</h2>
+<div class="sambreroClass" id="sambreroId">
+    <h1 style="
+    background-color: royalblue;
+    color: antiquewhite;
+    border-radius: 15px;"> О п т и к а </h1>
+    <h2> Склад </h2>
+    <form>
+    <input type="text" name="find0" size="20">
+    <button type="submit">Найти</button>
     <hr>
+</form>
 </div>
-<!--up -->
-<div class="fr">
-    <h2>Оправы в наличии:</h2>
-    <form>
-        <input type="text" size="20">
-        <button type="submit">Найти</button>
-    </form><br>
-    <table border="3">
-        <thead>
-        <tr>
-            <th> №</th>
-            <th> Фирма</th>
-            <th> Модель</th>
-            <th> Материал</th>
-            <th> Тип</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr data-th-each="frame : ${frames}">
-            <td data-th-text="${frame.id}"></td>
-            <td data-th-text="${frame.firm}"></td>
-            <td data-th-text="${frame.model}"></td>
-            <td data-th-text="${frame.material}"></td>
-            <td data-th-text="${frame.typeOfFixation}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <form method="post" data-th-action="@{/catalogue}">
-        <label><strong>Вписать новую оправу:</strong></label><br>
-        <label>Фирма: <input type="text" name="firm"> </label><br>
-        <label>Модель: <input type="text" name="model"> </label><br>
-        <label>Материал: <input type="text" name="material"> </label><br>
-        <label>Тип: <input type="text" name="type"> </label><br>
-        <button type="submit">Создать</button>
-    </form>
+<div class="leftMenuClass" id="leftMenuId" style="
+        width: 300px;
+        background-color: royalblue;
+        color: darkturquoise;
+        border-radius: 15px; display: inline;
+        border: fuchsia;
+        ">
+
+    <br><br><br>
+    <ul>
+        <li><a data-th-href="v_zakazy">Заказы</a></li>
+        <li><a data-th-href="v_klienty">Клиенты</a></li>
+        <li><a data-th-href="na_sklad">Склад</a></li>
+        <li><a data-th-href="v_admin">Администратор</a></li>
+    </ul>
+</div>
+<div class="rabochyClass" id="rebochyId" style="
+        position: relative;
+        width: 700px;
+        right: -350px;
+        top: -150px;
+        background-color: azure;
+        color: sienna;
+        ">
+    <div class="fr">
+        <h3>Оправы в наличии:</h3>
+        <form>
+            <input type="text" name="find" size="20">
+            <button type="submit">Найти</button>
+        </form>
+        <br>
+        <table border="3">
+            <thead>
+            <tr>
+                <th> №</th>
+                <th> Фирма</th>
+                <th> Модель</th>
+                <th> Материал</th>
+                <th> Тип</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="frame : ${frames}">
+                <td data-th-text="${frame.id}"></td>
+                <td data-th-text="${frame.firm}"></td>
+                <td data-th-text="${frame.model}"></td>
+                <td data-th-text="${frame.material}"></td>
+                <td data-th-text="${frame.typeOfFixation}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <form method="post" data-th-action="@{/catalogue/frame}">
+            <label><strong>Добавить новую оправу:</strong></label><br>
+            <label>Фирма: <input type="text" name="firm"> </label><br>
+            <label>Модель: <input type="text" name="model"> </label><br>
+            <label>Материал: <input type="text" name="material"> </label><br>
+            <label>Тип: <input type="text" name="typeOfFixation"> </label><br>
+            <label>Цена закупки: <input type="number" name="purchasePrice"> </label><br>
+            <label>Цена продажи: <input type="number" name="salePrice"> </label><br>
+            <button type="submit">Создать</button>
+        </form>
+    </div>
+    <hr>
+    <!-- конец оправ-->
+    <!-- очк линзы-->
+    <div class="glClass">
+        <h3>Очковые линзы в наличии:</h3>
+        <form>
+            <input type="text" size="20">
+            <button type="submit">Найти</button>
+        </form>
+        <br>
+        <table border="3">
+            <thead>
+            <tr>
+                <th> №</th>
+                <th> Фирма</th>
+                <th> Модель</th>
+                <th> Материал</th>
+                <th> Тип</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="glens : ${glenses}">
+                <td data-th-text="${glens.id}"></td>
+                <td data-th-text="${glens.firm}"></td>
+                <td data-th-text="${glens.model}"></td>
+                <td data-th-text="${glens.material}"></td>
+                <td data-th-text="${glens.type}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <form method="post" data-th-action="@{/catalogue/glens}">
+            <label><strong>Добавить новую очковую линзу:</strong>:</strong></label><br>
+            <label>Фирма: <input type="text" name="firm"> </label><br>
+            <label>Модель: <input type="text" name="model"> </label><br>
+            <label>Материал: <input type="text" name="material"> </label><br>
+            <label>Тип: <input type="text" name="type"> </label><br>
+            <label>Цена закупки: <input type="number" name="purchasePrice"> </label><br>
+            <label>Цена продажи: <input type="number" name="salePrice"> </label><br>
+            <button type="submit">Создать</button>
+        </form>
+    </div>
 </div>
 <hr>
-<!-- конец оправ-->
-<div class="glClass">
-    <h2>Очковые линзы в наличии:</h2>
-    <form>
-        <input type="text" size="20">
-        <button type="submit">Найти</button>
-    </form><br>
-    <table border="3">
-        <thead>
-        <tr>
-            <th> №</th>
-            <th> Фирма</th>
-            <th> Модель</th>
-            <th> Материал</th>
-            <th> Тип</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr data-th-each="glens : ${glenses}">
-            <td data-th-text="${glens.id}"></td>
-            <td data-th-text="${glens.firm}"></td>
-            <td data-th-text="${glens.model}"></td>
-            <td data-th-text="${glens.material}"></td>
-            <td data-th-text="${glens.type}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <form>
-        <label><strong>Вписать новый товар:</strong>:</strong></label><br>
-        <label>Фирма: <input type="text"> </label><br>
-        <label>Модель: <input type="text"> </label><br>
-        <label>Материал: <input type="text"> </label><br>
-        <label>Тип: <input type="text"> </label><br>
-        <button type="submit">Создать</button>
-    </form>
-</div>
-<hr>
+<!-- канец очк линз-->
 
 </body>
 </html>

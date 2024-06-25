@@ -1,6 +1,5 @@
 package ru.frolov.viewmodule.entity.forOrder;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -8,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.frolov.viewmodule.entity.forGlasses.Frame;
-import ru.frolov.viewmodule.entity.forGlasses.GLens;
+import ru.frolov.viewmodule.entity.forGlasses.Glens;
 
 import java.util.Date;
 import java.util.List;
@@ -35,5 +34,5 @@ public class Order {
     private List<Frame> frames;
 
     @OneToMany
-    private List<GLens> gLenses;
+    private List<Glens> gLenses;
 }

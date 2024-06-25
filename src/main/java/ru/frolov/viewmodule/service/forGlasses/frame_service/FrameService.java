@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public interface FrameService {
-    List<Frame> findAllEyeFrames();
+    List<Frame> findAllFrames();
 
     void saveFrame(Frame frame);
 }

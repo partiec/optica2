@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GLens {
+public class Glens {
     @Id
     private Long id;
 

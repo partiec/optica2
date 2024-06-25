@@ -1,0 +1,13 @@
+div.upClass, div.glClass{
+    background-color: cyan;
+    color: green;
+}
+form {
+    background-color: greenyellow;
+    color: brown;
+}
+h1{
+    background-color: chocolate;
+    color: darkmagenta;
+
+}
